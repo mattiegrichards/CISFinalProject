@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIS411 Wrestling Project", "CIS411 Wrestling Project\CIS411 Wrestling Project.csproj", "{67368B06-2506-4A1D-B53D-E0050C4E5541}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIS411 Wrestling Project.Tests", "CIS411 Wrestling Project.Tests\CIS411 Wrestling Project.Tests.csproj", "{8AD83A24-6470-4FBC-B7AF-43F1C69206BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67368B06-2506-4A1D-B53D-E0050C4E5541}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67368B06-2506-4A1D-B53D-E0050C4E5541}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67368B06-2506-4A1D-B53D-E0050C4E5541}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67368B06-2506-4A1D-B53D-E0050C4E5541}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AD83A24-6470-4FBC-B7AF-43F1C69206BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AD83A24-6470-4FBC-B7AF-43F1C69206BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AD83A24-6470-4FBC-B7AF-43F1C69206BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AD83A24-6470-4FBC-B7AF-43F1C69206BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
