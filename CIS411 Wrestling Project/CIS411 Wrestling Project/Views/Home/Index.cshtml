@@ -1,10 +1,58 @@
 ﻿@model CIS411_Wrestling_Project.Models.Match
+<script type="text/javascript">
+var interval = 1000;
 
+var limit = 0;
+
+var canvas, ctx, size, startAngle, wedgeSize, fillClr, elapsed, intervalId, timerElement;
+
+var hh=0, mm=0, ss=0;
+
+var hInput, mInput, sInput, overlay;
+
+$(document).ready(function() {
+
+canvas = $(“#canvas”)[0];
+
+ctx = canvas.getContext(’2d’);
+
+size = Math.min(canvas.width, canvas.height);
+
+startAngle = -Math.PI/2;
+
+timerElement = document.getElementById(‘elapsedTime’);
+
+hInput = document.getElementById(‘hours’);
+
+mInput = document.getElementById(‘minutes’);
+
+sInput = document.getElementById(‘seconds’);
+
+overlay = document.getElementById(‘timesUp’);
+
+initClock();
+
+});
+    </script>
 @{
     ViewBag.Title = "JH Wrestling";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h2>JOHN HARDING BULLDOGS WRESTLING</h2>
 
+    Min
+<input id="minutes" type="text" value="" style="width:26px" onkeypress="validate(event)" />
+    Sec
+<input id="seconds" type="text" value="" style="width:26px" onkeypress="validate(event)" />
+
+<input name="starter" type=button value="Start" onClick="startClock()" >
+<br />
+
+<input id="elapsedTime" value="0:00:00" readonly="readonly" />
+<br />
+<input name="pauser" type=button value="Pause" onClick="pauseClock()" >
+
+<input name="resetter" type=button value="Reset" style="width:97px; font-weight:bold" onClick="resetClock()" >
 
