@@ -1,1 +1,1 @@
-This is our groups CIS Final Project
+This is our group's CIS Final Project
