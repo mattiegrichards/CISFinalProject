@@ -1,37 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using CIS411_Wrestling_Project.Models;
 
 namespace CIS411_Wrestling_Project.Controllers
 {
     public class MatchController : Controller
     {
-        private MatchDBContext db = new MatchDBContext();
-
         //
         // GET: /Match/
 
         public ActionResult Index()
         {
-            return View(db.Matches.ToList());
+            return View();
         }
 
         //
         // GET: /Match/Details/5
 
-        public ActionResult Details(int id = 0)
+        public ActionResult Details(int id)
         {
-            Match match = db.Matches.Find(id);
-            if (match == null)
-            {
-                return HttpNotFound();
-            }
-            return View(match);
+            return View();
         }
 
         //
@@ -46,75 +36,70 @@ namespace CIS411_Wrestling_Project.Controllers
         // POST: /Match/Create
 
         [HttpPost]
-        public ActionResult Create(Match match)
+        public ActionResult Create(FormCollection collection)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Matches.Add(match);
-                db.SaveChanges();
+                // TODO: Add insert logic here
+
                 return RedirectToAction("Index");
             }
-
-            return View(match);
+            catch
+            {
+                return View();
+            }
         }
 
         //
         // GET: /Match/Edit/5
 
-        public ActionResult Edit(int id = 0)
+        public ActionResult Edit(int id)
         {
-            Match match = db.Matches.Find(id);
-            if (match == null)
-            {
-                return HttpNotFound();
-            }
-            return View(match);
+            return View();
         }
 
         //
         // POST: /Match/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Match match)
+        public ActionResult Edit(int id, FormCollection collection)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(match).State = EntityState.Modified;
-                db.SaveChanges();
+                // TODO: Add update logic here
+
                 return RedirectToAction("Index");
             }
-            return View(match);
+            catch
+            {
+                return View();
+            }
         }
 
         //
         // GET: /Match/Delete/5
 
-        public ActionResult Delete(int id = 0)
+        public ActionResult Delete(int id)
         {
-            Match match = db.Matches.Find(id);
-            if (match == null)
-            {
-                return HttpNotFound();
-            }
-            return View(match);
+            return View();
         }
 
         //
         // POST: /Match/Delete/5
 
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
         {
-            Match match = db.Matches.Find(id);
-            db.Matches.Remove(match);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+            try
+            {
+                // TODO: Add delete logic here
 
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }
