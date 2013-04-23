@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CIS411_Wrestling_Project.Models;
 using CIS411_Wrestling_Project.Repositories;
 
 namespace CIS411_Wrestling_Project.Controllers
@@ -37,8 +38,14 @@ namespace CIS411_Wrestling_Project.Controllers
         //
         // GET: /Match/Create
 
-        public ActionResult Create()
+        public ActionResult Create(int HPoints, int APoints)
         {
+            Match match = new Match();
+            match.Home_Points = HPoints;
+            match.Away_Points = APoints;
+
+            _repository.add(match);
+
             return View();
         }
 
