@@ -19,11 +19,6 @@ namespace CIS411_Wrestling_Project.Repositories
             _context = new MatchDBEntities();
         }
 
-        public Match getById(Match object2get)
-        {
-            throw new NotImplementedException();
-        }
-
         public Match[] getAll()
         {
             return _context.Matches.ToArray();
@@ -31,22 +26,25 @@ namespace CIS411_Wrestling_Project.Repositories
 
         public void add(Match match2add)
         {
-            throw new NotImplementedException();
+            _context.Matches.Add(match2add);
+            _context.SaveChanges();
         }
 
         public void update(Match match2update)
         {
-            throw new NotImplementedException();
+            _context.Entry(match2update).State = EntityState.Modified;
+            _context.SaveChanges();
         }
 
         public void remove(Match match2remove)
         {
-            throw new NotImplementedException();
+            _context.Matches.Remove(match2remove);
+            _context.SaveChanges();
         }
 
         public IQueryable<Match> query(System.Linq.Expressions.Expression<Func<Match, bool>> filter)
         {
-            throw new NotImplementedException();
+            return _context.Matches.Where(filter);
         }
     }
 }

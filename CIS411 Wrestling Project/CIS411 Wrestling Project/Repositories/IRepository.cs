@@ -9,7 +9,6 @@ namespace CIS411_Wrestling_Project.Repositories
 {
     interface IRepository<T>
     {
-        T getById(T object2Add);
         T[] getAll();
         void add(T object2Add);
         void update(T object2Update);
