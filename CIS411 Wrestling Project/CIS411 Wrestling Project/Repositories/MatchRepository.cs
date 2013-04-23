@@ -12,11 +12,11 @@ namespace CIS411_Wrestling_Project.Repositories
 {
     public class MatchRepository : IRepository<Match>
     {
-        private MatchDBContext _context = null;
+        private MatchDBEntities _context = null;
 
         public MatchRepository()
         {
-            _context = new MatchDBContext();
+            _context = new MatchDBEntities();
         }
 
         public Match getById(Match object2get)
@@ -26,7 +26,7 @@ namespace CIS411_Wrestling_Project.Repositories
 
         public Match[] getAll()
         {
-            throw new NotImplementedException();
+            return _context.Matches.ToArray();
         }
 
         public void add(Match match2add)

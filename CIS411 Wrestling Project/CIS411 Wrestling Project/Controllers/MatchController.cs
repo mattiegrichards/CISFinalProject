@@ -3,17 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CIS411_Wrestling_Project.Repositories;
 
 namespace CIS411_Wrestling_Project.Controllers
 {
     public class MatchController : Controller
     {
+
+        private readonly MatchRepository _repository;
+
+        public MatchController(MatchRepository repository)
+        {
+            _repository = repository;
+        }
+
         //
         // GET: /Match/
 
         public ActionResult Index()
         {
-            return View();
+            var matches = _repository.getAll();
+            return View(matches);
         }
 
         //
