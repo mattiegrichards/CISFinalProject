@@ -114,8 +114,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\themes\mattie.css" />
+    <Content Include="Content\themes\Site.css" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Scripts\Custom\timer.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -139,8 +144,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Match\create.cshtml" />
-    <Content Include="Views\Match\details.cshtml" />
-    <Content Include="Views\Match\index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Match\timer.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

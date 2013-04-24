@@ -1,83 +1,160 @@
-﻿@model wrestling.core.Models.MatchModel
+﻿    @model wrestling.core.Models.MatchModel
 
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>create</title>
-</head>
-<body>
-    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    
-    @using (Html.BeginForm()) {
-        @Html.ValidationSummary(true)
-    
-        <fieldset>
-            <legend>PhoneModel</legend>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.homePoints)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.homePoints)
-                @Html.ValidationMessageFor(model => model.homePoints)
-            </div>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.awayPoints)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.awayPoints)
-                @Html.ValidationMessageFor(model => model.awayPoints)
-            </div>
-<!--
-            <div class="editor-label">
-                @Html.LabelFor(model => model.phoneNumber)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.phoneNumber)
-                @Html.ValidationMessageFor(model => model.phoneNumber)
-            </div>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.createDate)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.createDate)
-                @Html.ValidationMessageFor(model => model.createDate)
-            </div>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.lastModifiedDate)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.lastModifiedDate)
-                @Html.ValidationMessageFor(model => model.lastModifiedDate)
-            </div>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.applicantId)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.applicantId)
-                @Html.ValidationMessageFor(model => model.applicantId)
-            </div>
-    -->
-            <p>
-                <input type="submit" value="Create" />
-            </p>
-        </fieldset>
+    @{
+        ViewBag.Title = "Reisz Wrestling Federation";
     }
-    
-    <div>
-        @Html.ActionLink("Back to List", "Index")
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+    <script src="~/Scripts/Custom/timer.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="~/Content/themes/Site.css" />
+    <link rel="stylesheet" href="~/Content/themes/mattie.css" />
+
+<div id="contentwrapper">
+    <div id="timer">
+        <h2>REISZ WRESTLING ASSOCIATION</h2>
+        <br />
+            Min
+        <input id="minutes" type="text" value="" style="width:26px" onkeypress="validate(event)" />
+            Sec
+        <input id="seconds" type="text" value="" style="width:26px" onkeypress="validate(event)" />
+
+        <input name="starter" type=button value="Start" onClick="startClock()" >
+        <br />
+
+        <input id="elapsedTime" value="00:00" readonly="readonly" />
+        <br />
+        <input name="pauser" type=button value="Pause" onClick="pauseClock()" >
+
+        <input name="resetter" type=button value="Reset" style="width:97px; font-weight:bold" onClick="resetClock()" >
+        <br />
+
+
+            <input name="timeoutbutton" type="button" value="Time Out" onClick="timeout()" />
+        <span id="timeout"></span>
+        <br />
+
+
+        <div id="leftcol">
+        Home
+            <br />
+        <span id="homePoints">0</span>
+
+            <br />
+        <input class="updown" type="button" value="+" onclick="homeup()" />
+        <input class="updown" type="button" value="-" onclick="homedown()" />
+            </div>
+
+        <div id="rightcol">
+        Away
+            <br />
+        <span id="awayPoints">0</span>
+
+            <br />
+        <input class="updown" type="button" value="+" onclick="awayup()" />
+        <input class="updown" type="button" value="-" onclick="awaydown()" />
+        </div>
     </div>
-</body>
-</html>
+
+    <div id="record">
+        <h2>Record</h2>
+
+        @using (Html.BeginForm()) {
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend>MatchModel</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.matchID)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.matchID)
+                    @Html.ValidationMessageFor(model => model.matchID)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.homePlayer)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.homePlayer)
+                    @Html.ValidationMessageFor(model => model.homePlayer)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.awayPlayer)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.awayPlayer)
+                    @Html.ValidationMessageFor(model => model.awayPlayer)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.matchTime)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.matchTime)
+                    @Html.ValidationMessageFor(model => model.matchTime)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.homeInjuryTime)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.homeInjuryTime)
+                    @Html.ValidationMessageFor(model => model.homeInjuryTime)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.awayInjuryTime)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.awayInjuryTime)
+                    @Html.ValidationMessageFor(model => model.awayInjuryTime)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.homeBloodTime)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.homeBloodTime)
+                    @Html.ValidationMessageFor(model => model.homeBloodTime)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.awayBloodTime)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.awayBloodTime)
+                    @Html.ValidationMessageFor(model => model.awayBloodTime)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.homePoints)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.homePoints)
+                    @Html.ValidationMessageFor(model => model.homePoints)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.awayPoints)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.awayPoints)
+                    @Html.ValidationMessageFor(model => model.awayPoints)
+                </div>
+
+                <p>
+                    <input type="submit" value="Create" />
+                </p>
+            </fieldset>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,107 @@
+﻿@model wrestling.core.Models.MatchModel
+
+@{
+    ViewBag.Title = "timer";
+}
+
+<h2>timer</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>MatchModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.matchID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.matchID)
+            @Html.ValidationMessageFor(model => model.matchID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.homePlayer)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.homePlayer)
+            @Html.ValidationMessageFor(model => model.homePlayer)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.awayPlayer)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.awayPlayer)
+            @Html.ValidationMessageFor(model => model.awayPlayer)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.matchTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.matchTime)
+            @Html.ValidationMessageFor(model => model.matchTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.homeInjuryTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.homeInjuryTime)
+            @Html.ValidationMessageFor(model => model.homeInjuryTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.awayInjuryTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.awayInjuryTime)
+            @Html.ValidationMessageFor(model => model.awayInjuryTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.homeBloodTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.homeBloodTime)
+            @Html.ValidationMessageFor(model => model.homeBloodTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.awayBloodTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.awayBloodTime)
+            @Html.ValidationMessageFor(model => model.awayBloodTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.homePoints)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.homePoints)
+            @Html.ValidationMessageFor(model => model.homePoints)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.awayPoints)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.awayPoints)
+            @Html.ValidationMessageFor(model => model.awayPoints)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
