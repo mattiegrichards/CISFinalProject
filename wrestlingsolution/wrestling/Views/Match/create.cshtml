@@ -13,17 +13,19 @@
 
 <div id="contentwrapper">
     <div id="timer">
-        <h2>REISZ WRESTLING ASSOCIATION</h2>
+        <h1 class="header2" >REISZ WRESTLING ASSOCIATION</h1>
         <br />
             Min
-        <input id="minutes" type="text" value="" style="width:26px" onkeypress="validate(event)" />
+        <input id="minutes" type="text" value="" style="width:26px"     color: lightgreen;
+    background-color: black; onkeypress="validate(event)" />
             Sec
-        <input id="seconds" type="text" value="" style="width:26px" onkeypress="validate(event)" />
+        <input id="seconds" type="text" value="" style="width:26px"     color: lightgreen;
+    background-color: black; onkeypress="validate(event)" />
 
         <input name="starter" type=button value="Start" onClick="startClock()" >
         <br />
 
-        <input id="elapsedTime" value="00:00" readonly="readonly" />
+        <input class="counter" id="elapsedTime" value="00:00" readonly="readonly" />
         <br />
         <input name="pauser" type=button value="Pause" onClick="pauseClock()" >
 
@@ -31,42 +33,49 @@
         <br />
 
 
-           <!-- <input name="timeoutbutton" type="button" value="Time Out" onClick="timeout()" />
-        <!--<span id="timeout"></span> -->
+      <!--      <input name="timeoutbutton" type="button" value="Time Out" onClick="timeout()" />
+        <span id="timeout"></span> -->
         <br />
 
 
-        <div id="leftcol">
+        <div class="leftcol">
         Home
             <br />
-        <span id="homePoints">0</span>
+        <span class="counter2" id="homePoints">0</span>
 
             <br />
         <input class="updown" type="button" value="+" onclick="homeup()" />
         <input class="updown" type="button" value="-" onclick="homedown()" />
             </div>
 
-        <div id="rightcol">
+        <div class="rightcol">
         Away
             <br />
-        <span id="awayPoints">0</span>
+        <span class="counter2" id="awayPoints">0</span>
 
             <br />
         <input class="updown" type="button" value="+" onclick="awayup()" />
         <input class="updown" type="button" value="-" onclick="awaydown()" />
         </div>
     </div>
-    
+
     <div id="record">
-        <h2>Record</h2>
+        <h3 class="header2">Record</h3>
 
         @using (Html.BeginForm()) {
             @Html.ValidationSummary(true)
 
             <fieldset>
-                <input type="submit" value="Old Matches" />
                 <legend>MatchModel</legend>
+                <div class="leftcol">
 
+
+                </div>
+
+                <div class="rightcol">
+
+                 
+                </div>
                 <div class="editor-label">
                     @Html.LabelFor(model => model.matchID)
                 </div>
@@ -154,7 +163,7 @@
         }
 
         <div>
-           @* @Html.ActionLink("Back to List", "Index")*@
+        @*    @Html.ActionLink("Back to List", "Index") *@
         </div>
 
     </div>
