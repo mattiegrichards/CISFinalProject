@@ -38,12 +38,25 @@ namespace wrestling.core.Services
             return matchModels;
         }
 
-        public ICollection<Models.MatchModel> listMatchesByHomePlayer(decimal homePlayer)
+        public ICollection<MatchModel> listMatchesByHomePlayer(decimal homePlayer)
         {
             throw new NotImplementedException();
         }
+        /*public MatchModel listMatchesByHomePlayer(int homePlayer)
+        {
+            MatchRepo matchRepo = new MatchRepo();
+            Match matchData = matchRepo.getById(new Match { Match_ID = matchID });
+            MatchModel matchModel = new MatchModel();
+            matchModel.matchID = matchData.Match_ID;
+            matchModel.homePlayer = matchData.Home_Player;
+            matchModel.matchTime = matchData.Match_Time;
+            matchModel.homeBloodTime = matchData.Home_Blood_Time;
+            matchModel.homePoints = matchData.Home_Points;
 
-        public Models.MatchModel getMatchById(decimal matchID)
+            return matchModel;
+        }*/
+
+        public MatchModel getMatchById(decimal matchID)
         {
             throw new NotImplementedException();
         }
