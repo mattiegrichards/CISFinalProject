@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace wrestling.dal.Repository
 {
-    interface MatchRepo : IRepository<Match>
+    public class MatchRepo : IRepository<Match>
     {
         private student10Entities _context = null;
 
