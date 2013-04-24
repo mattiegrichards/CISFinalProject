@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="student10Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="student10ModelStoreContainer">
+          <EntitySet Name="Away Player" EntityType="student10Model.Store.Away Player" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Home Player" EntityType="student10Model.Store.Home Player" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Match" EntityType="student10Model.Store.Match" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="School" EntityType="student10Model.Store.School" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="student10Model.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Away Player_School" Association="student10Model.Store.FK_Away Player_School">
+            <End Role="School" EntitySet="School" />
+            <End Role="Away Player" EntitySet="Away Player" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Home Player_School" Association="student10Model.Store.FK_Home Player_School">
+            <End Role="School" EntitySet="School" />
+            <End Role="Home Player" EntitySet="Home Player" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Match_Away Player" Association="student10Model.Store.FK_Match_Away Player">
+            <End Role="Away Player" EntitySet="Away Player" />
+            <End Role="Match" EntitySet="Match" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Match_Home Player" Association="student10Model.Store.FK_Match_Home Player">
+            <End Role="Home Player" EntitySet="Home Player" />
+            <End Role="Match" EntitySet="Match" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Away Player">
+          <Key>
+            <PropertyRef Name="Away Player ID" />
+          </Key>
+          <Property Name="Away Player ID" Type="int" Nullable="false" />
+          <Property Name="School ID" Type="int" Nullable="false" />
+          <Property Name="Weight Class" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Home Player">
+          <Key>
+            <PropertyRef Name="Home Player ID" />
+          </Key>
+          <Property Name="Home Player ID" Type="int" Nullable="false" />
+          <Property Name="School ID" Type="int" Nullable="false" />
+          <Property Name="Weight Class" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Match">
+          <Key>
+            <PropertyRef Name="Match ID" />
+          </Key>
+          <Property Name="Match ID" Type="int" Nullable="false" />
+          <Property Name="Home Player ID" Type="int" Nullable="false" />
+          <Property Name="Away Player ID" Type="int" Nullable="false" />
+          <Property Name="Match Time" Type="time" Nullable="false" />
+          <Property Name="Home Blood Time" Type="time" />
+          <Property Name="Away Blood Time" Type="time" />
+          <Property Name="Home Injury Time" Type="time" />
+          <Property Name="Away Injury Time" Type="time" />
+          <Property Name="Home Points" Type="int" />
+          <Property Name="Away Points" Type="int" />
+          <Property Name="Winner" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="School ID" />
+          </Key>
+          <Property Name="School ID" Type="int" Nullable="false" />
+          <Property Name="School Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Away Player_School">
+          <End Role="School" Type="student10Model.Store.School" Multiplicity="1" />
+          <End Role="Away Player" Type="student10Model.Store.Away Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="School ID" />
+            </Principal>
+            <Dependent Role="Away Player">
+              <PropertyRef Name="School ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Home Player_School">
+          <End Role="School" Type="student10Model.Store.School" Multiplicity="1" />
+          <End Role="Home Player" Type="student10Model.Store.Home Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="School ID" />
+            </Principal>
+            <Dependent Role="Home Player">
+              <PropertyRef Name="School ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Match_Away Player">
+          <End Role="Away Player" Type="student10Model.Store.Away Player" Multiplicity="1" />
+          <End Role="Match" Type="student10Model.Store.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Away Player">
+              <PropertyRef Name="Away Player ID" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="Away Player ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Match_Home Player">
+          <End Role="Home Player" Type="student10Model.Store.Home Player" Multiplicity="1" />
+          <End Role="Match" Type="student10Model.Store.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Home Player">
+              <PropertyRef Name="Home Player ID" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="Home Player ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="student10Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="student10Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Away_Players" EntityType="student10Model.Away_Player" />
+          <EntitySet Name="Home_Players" EntityType="student10Model.Home_Player" />
+          <EntitySet Name="Matches" EntityType="student10Model.Match" />
+          <EntitySet Name="Schools" EntityType="student10Model.School" />
+          <EntitySet Name="sysdiagrams" EntityType="student10Model.sysdiagram" />
+          <AssociationSet Name="FK_Away_Player_School" Association="student10Model.FK_Away_Player_School">
+            <End Role="School" EntitySet="Schools" />
+            <End Role="Away_Player" EntitySet="Away_Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Match_Away_Player" Association="student10Model.FK_Match_Away_Player">
+            <End Role="Away_Player" EntitySet="Away_Players" />
+            <End Role="Match" EntitySet="Matches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Home_Player_School" Association="student10Model.FK_Home_Player_School">
+            <End Role="School" EntitySet="Schools" />
+            <End Role="Home_Player" EntitySet="Home_Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Match_Home_Player" Association="student10Model.FK_Match_Home_Player">
+            <End Role="Home_Player" EntitySet="Home_Players" />
+            <End Role="Match" EntitySet="Matches" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Away_Player">
+          <Key>
+            <PropertyRef Name="Away_Player_ID" />
+          </Key>
+          <Property Name="Away_Player_ID" Type="Int32" Nullable="false" />
+          <Property Name="School_ID" Type="Int32" Nullable="false" />
+          <Property Name="Weight_Class" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="School" Relationship="student10Model.FK_Away_Player_School" FromRole="Away_Player" ToRole="School" />
+          <NavigationProperty Name="Matches" Relationship="student10Model.FK_Match_Away_Player" FromRole="Away_Player" ToRole="Match" />
+        </EntityType>
+        <EntityType Name="Home_Player">
+          <Key>
+            <PropertyRef Name="Home_Player_ID" />
+          </Key>
+          <Property Name="Home_Player_ID" Type="Int32" Nullable="false" />
+          <Property Name="School_ID" Type="Int32" Nullable="false" />
+          <Property Name="Weight_Class" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="School" Relationship="student10Model.FK_Home_Player_School" FromRole="Home_Player" ToRole="School" />
+          <NavigationProperty Name="Matches" Relationship="student10Model.FK_Match_Home_Player" FromRole="Home_Player" ToRole="Match" />
+        </EntityType>
+        <EntityType Name="Match">
+          <Key>
+            <PropertyRef Name="Match_ID" />
+          </Key>
+          <Property Name="Match_ID" Type="Int32" Nullable="false" />
+          <Property Name="Home_Player_ID" Type="Int32" Nullable="false" />
+          <Property Name="Away_Player_ID" Type="Int32" Nullable="false" />
+          <Property Name="Match_Time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Home_Blood_Time" Type="Time" Precision="7" />
+          <Property Name="Away_Blood_Time" Type="Time" Precision="7" />
+          <Property Name="Home_Injury_Time" Type="Time" Precision="7" />
+          <Property Name="Away_Injury_Time" Type="Time" Precision="7" />
+          <Property Name="Home_Points" Type="Int32" />
+          <Property Name="Away_Points" Type="Int32" />
+          <Property Name="Winner" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Away_Player" Relationship="student10Model.FK_Match_Away_Player" FromRole="Match" ToRole="Away_Player" />
+          <NavigationProperty Name="Home_Player" Relationship="student10Model.FK_Match_Home_Player" FromRole="Match" ToRole="Home_Player" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="School_ID" />
+          </Key>
+          <Property Name="School_ID" Type="Int32" Nullable="false" />
+          <Property Name="School_Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Away_Player" Relationship="student10Model.FK_Away_Player_School" FromRole="School" ToRole="Away_Player" />
+          <NavigationProperty Name="Home_Player" Relationship="student10Model.FK_Home_Player_School" FromRole="School" ToRole="Home_Player" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Away_Player_School">
+          <End Role="School" Type="student10Model.School" Multiplicity="1" />
+          <End Role="Away_Player" Type="student10Model.Away_Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="School_ID" />
+            </Principal>
+            <Dependent Role="Away_Player">
+              <PropertyRef Name="School_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Match_Away_Player">
+          <End Role="Away_Player" Type="student10Model.Away_Player" Multiplicity="1" />
+          <End Role="Match" Type="student10Model.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Away_Player">
+              <PropertyRef Name="Away_Player_ID" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="Away_Player_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Home_Player_School">
+          <End Role="School" Type="student10Model.School" Multiplicity="1" />
+          <End Role="Home_Player" Type="student10Model.Home_Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="School_ID" />
+            </Principal>
+            <Dependent Role="Home_Player">
+              <PropertyRef Name="School_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Match_Home_Player">
+          <End Role="Home_Player" Type="student10Model.Home_Player" Multiplicity="1" />
+          <End Role="Match" Type="student10Model.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Home_Player">
+              <PropertyRef Name="Home_Player_ID" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="Home_Player_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="student10ModelStoreContainer" CdmEntityContainer="student10Entities">
+          <EntitySetMapping Name="Away_Players">
+            <EntityTypeMapping TypeName="student10Model.Away_Player">
+              <MappingFragment StoreEntitySet="Away Player">
+                <ScalarProperty Name="Away_Player_ID" ColumnName="Away Player ID" />
+                <ScalarProperty Name="School_ID" ColumnName="School ID" />
+                <ScalarProperty Name="Weight_Class" ColumnName="Weight Class" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Home_Players">
+            <EntityTypeMapping TypeName="student10Model.Home_Player">
+              <MappingFragment StoreEntitySet="Home Player">
+                <ScalarProperty Name="Home_Player_ID" ColumnName="Home Player ID" />
+                <ScalarProperty Name="School_ID" ColumnName="School ID" />
+                <ScalarProperty Name="Weight_Class" ColumnName="Weight Class" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Matches">
+            <EntityTypeMapping TypeName="student10Model.Match">
+              <MappingFragment StoreEntitySet="Match">
+                <ScalarProperty Name="Match_ID" ColumnName="Match ID" />
+                <ScalarProperty Name="Home_Player_ID" ColumnName="Home Player ID" />
+                <ScalarProperty Name="Away_Player_ID" ColumnName="Away Player ID" />
+                <ScalarProperty Name="Match_Time" ColumnName="Match Time" />
+                <ScalarProperty Name="Home_Blood_Time" ColumnName="Home Blood Time" />
+                <ScalarProperty Name="Away_Blood_Time" ColumnName="Away Blood Time" />
+                <ScalarProperty Name="Home_Injury_Time" ColumnName="Home Injury Time" />
+                <ScalarProperty Name="Away_Injury_Time" ColumnName="Away Injury Time" />
+                <ScalarProperty Name="Home_Points" ColumnName="Home Points" />
+                <ScalarProperty Name="Away_Points" ColumnName="Away Points" />
+                <ScalarProperty Name="Winner" ColumnName="Winner" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schools">
+            <EntityTypeMapping TypeName="student10Model.School">
+              <MappingFragment StoreEntitySet="School">
+                <ScalarProperty Name="School_ID" ColumnName="School ID" />
+                <ScalarProperty Name="School_Name" ColumnName="School Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="student10Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -195,7 +195,7 @@
       <DependentUpon>MatchDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\MatchModel.cs" />
+    <Compile Include="Models\MatchesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\MatchRepository.cs" />
@@ -331,11 +331,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\index.cshtml" />
-    <Content Include="Views\Timer\Index.cshtml" />
-    <Content Include="Views\Timer\Details.cshtml" />
-    <Content Include="Views\Timer\Create.cshtml" />
-    <Content Include="Views\Timer\Edit.cshtml" />
-    <Content Include="Views\Timer\Delete.cshtml" />
+    <Content Include="Views\Timer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

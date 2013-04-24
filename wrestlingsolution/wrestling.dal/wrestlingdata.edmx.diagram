@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c53bccc34b34418e83054f86f3b504bb" Name="Diagram1">
+        <EntityTypeShape EntityType="student10Model.Away_Player" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="student10Model.Home_Player" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="student10Model.Match" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="student10Model.School" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="student10Model.sysdiagram" Width="1.5" PointX="6.125" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="student10Model.FK_Away_Player_School" ManuallyRouted="false" />
+        <AssociationConnector Association="student10Model.FK_Match_Away_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="student10Model.FK_Home_Player_School" ManuallyRouted="false" />
+        <AssociationConnector Association="student10Model.FK_Match_Home_Player" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

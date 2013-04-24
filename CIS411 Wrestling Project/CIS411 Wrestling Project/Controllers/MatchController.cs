@@ -23,8 +23,10 @@ namespace CIS411_Wrestling_Project.Controllers
 
         public ActionResult Index()
         {
-            var matches = _repository.getAll();
-            return View(matches);
+            Match match = new Match();
+            match.Away_Points = 1;
+            match.Home_Points = 2;
+            return View(match);
         }
 
         //
@@ -44,6 +46,7 @@ namespace CIS411_Wrestling_Project.Controllers
             match.Home_Points = HPoints;
             match.Away_Points = APoints;
 
+
             _repository.add(match);
 
             return View();
@@ -55,6 +58,7 @@ namespace CIS411_Wrestling_Project.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+            
             try
             {
                 // TODO: Add insert logic here
