@@ -20,9 +20,9 @@ namespace wrestling.core.Services
             MatchModel matchModel = null;
             foreach (Match match in matches)
             {
-                matchModel = new MatchModel();
+                matchModel = new MatchModel();                
                 matchModel.matchID = match.Match_ID;
-                matchModel.homePlayer = match.Home_Player_ID;
+                //matchModel.homePlayer = match.Home_Player_ID;
                 matchModel.awayPlayer = match.Away_Player_ID;
                 matchModel.matchTime = match.Match_Time;
                 matchModel.homeBloodTime = match.Home_Blood_Time;

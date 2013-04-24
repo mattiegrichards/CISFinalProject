@@ -10,14 +10,14 @@ namespace wrestling.core.Models
     public class MatchModel
     {
         public int matchID { get; set; }
-        public Home_Player homePlayer { get; set; }
-        public Away_Player awayPlayer { get; set; }
-        public TimeSpan matchTime { get; set; }
-        public TimeSpan homeInjuryTime { get; set; }
-        public TimeSpan awayInjuryTime { get; set; }
-        public TimeSpan homeBloodTime { get; set; }
-        public TimeSpan awayBloodTime { get; set; }
-        public int homePoints { get; set; }
-        public int awayPoints { get; set; }
+        public int homePlayer { get; set; }
+        public int awayPlayer { get; set; }
+        public TimeSpan? matchTime { get; set; }
+        public TimeSpan? homeInjuryTime { get; set; }
+        public TimeSpan? awayInjuryTime { get; set; }
+        public TimeSpan? homeBloodTime { get; set; }
+        public TimeSpan? awayBloodTime { get; set; }
+        public int? homePoints { get; set; }
+        public int? awayPoints { get; set; }
     }
 }
