@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wrestling", "wrestling\wrestling.csproj", "{1652B711-3176-4287-AE47-2D2543FBF3FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wrestling.web", "wrestling\wrestling.web.csproj", "{1652B711-3176-4287-AE47-2D2543FBF3FB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wrestling.dal", "wrestling.dal\wrestling.dal.csproj", "{7BECC6F0-07F4-451A-99FD-40838A099B98}"
 EndProject

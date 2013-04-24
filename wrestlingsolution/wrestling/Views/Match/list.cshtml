@@ -1,11 +1,13 @@
 ﻿@model IEnumerable<wrestling.core.Models.MatchModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "list";
 }
 
+<h2>list</h2>
+
 <p>
-    @Html.ActionLink("Back to Timer", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table>
     <tr>
@@ -75,6 +77,9 @@
             @Html.DisplayFor(modelItem => item.awayPoints)
         </td>
         <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }
