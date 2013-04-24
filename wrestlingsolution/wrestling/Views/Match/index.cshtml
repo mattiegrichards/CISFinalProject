@@ -1,71 +1,92 @@
-﻿@model IEnumerable<phone.core.Models.PhoneModel>
+﻿@model IEnumerable<wrestling.core.Models.MatchModel>
 
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
 }
 
-<!DOCTYPE html>
+<h2>Match Storage Confirmation</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>View</title>
-</head>
-<body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.phoneId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.phoneCd)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.phoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.createDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.lastModifiedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.applicantId)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.phoneId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.phoneCd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.phoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.createDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.lastModifiedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.applicantId)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.phoneId  }) |
-                @Html.ActionLink("Details", "Details", new { id=item.phoneId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.phoneId })
-            </td>
-        </tr>
-    }
-    
-    </table>
-</body>
-</html>
+<h3>Match Stored</h3>
+@Html.ActionLink("Create New", "Create")
+
+@*
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.matchID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.homePlayer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.awayPlayer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.matchTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.homeInjuryTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.awayInjuryTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.homeBloodTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.awayBloodTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.homePoints)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.awayPoints)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.matchID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.homePlayer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.awayPlayer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.matchTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.homeInjuryTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.awayInjuryTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.homeBloodTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.awayBloodTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.homePoints)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.awayPoints)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
+*@
