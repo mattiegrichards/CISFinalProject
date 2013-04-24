@@ -9,7 +9,7 @@ using wrestling.dal.Repository;
 
 namespace wrestling.core.Services
 {
-    class MatchService : wrestling.core.Services.IServices
+    public class MatchService : wrestling.core.Services.IServices
     {
         public ICollection<Models.MatchModel> listMatches()
         {
@@ -35,7 +35,7 @@ namespace wrestling.core.Services
                 matchModels.Add(matchModel);
             }
             matchRepo = null;
-            return MatchModels;
+            return matchModels;
         }
 
         public ICollection<Models.MatchModel> listMatchesByHomePlayer(decimal homePlayer)

@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="student10Model.Home_Player" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="student10Model.Match" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="student10Model.School" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="student10Model.sysdiagram" Width="1.5" PointX="6.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="student10Model.sysdiagram" Width="1.5" PointX="7.875" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="student10Model.FK_Away_Player_School" ManuallyRouted="false" />
         <AssociationConnector Association="student10Model.FK_Match_Away_Player" ManuallyRouted="false" />
         <AssociationConnector Association="student10Model.FK_Home_Player_School" ManuallyRouted="false" />
